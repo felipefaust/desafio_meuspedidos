@@ -7,31 +7,43 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 public class SchedulePage {
-	private static final String ID_NEW_ACTIVITY_BUTTON = "btn_registrar_atividade";
-	private static final String CLASS_CLOSE_TOASTER = "gritter-close";
+	private static final String ID_DESCRIPTION = "id_descricao";
+	private static final String ID_ACTIVITY_BUTTON = "btn_registrar_atividade";
+	private static final String ID_OPTION_2 = "id_status_chzn_o_2";
+	private static final String ID_SELECT_FILTER = "id_status_chzn";
+	private static final String ID_USER_2 = "id_colaborador_chzn_o_2";
+	private static final String ID_SELECT_USER = "id_colaborador_chzn";
+	private static final String LINK_SAVE = "Salvar";
+	private static final String XPATH_NOTE_INPUT = "//*[@id='atividades']/li/div[2]/div/div[4]/textarea";
+	private static final String CLASSNAME_SHOW_NOTE = "link_mostrar";
+	private static final String CLASSNAME_CHECK_OUT = "check_out";
+	private static final String CLASS_NAME_CHECK = "check_clear";
+	private static final String XPATH_NOTE_ITEM_LIST = "//*[@id='atividades']/li/div[2]/div/div[3]/blockquote/div";
+	private static final String XPATH_EMPTY_LIST = "//*[@id='atividades']/li/div";
+	private static final String CLASSNAME_ALTER_SCHEDULE = "icon-pencil";
+	private static final String ID_NEW_ACTIVITY_BUTTON = ID_ACTIVITY_BUTTON;
 	private static final String CLASS_TOASTER = "gritter-message";
 	private static final String ID_MENU_SCHEDULE = "aba_agenda";
 	private static final String ID_SCHEDULING_BUTTON = "btn_novo_agendamento";
-	private WebElement newSchedulingButton;
 	private WebDriver driver;
-	
+
 	public SchedulePage(WebDriver driver) {
-		this.driver=driver;
+		this.driver = driver;
 	}
-	
-	public void goToSchedulePage(){
+
+	public void goToSchedulePage() {
 		driver.findElement(By.id(ID_MENU_SCHEDULE)).click();
 	}
-	
-	public void clickNewSchedulingButton(){
+
+	public void clickNewSchedulingButton() {
 		driver.findElement(By.id(ID_SCHEDULING_BUTTON)).click();
 	}
 
-	public void clickNewActivityButton(){
+	public void clickNewActivityButton() {
 		driver.findElement(By.id(ID_NEW_ACTIVITY_BUTTON)).click();
 	}
-	
-	public boolean isVisibleSchedulePage(){
+
+	public boolean isVisibleSchedulePage() {
 		return driver.findElement(By.id(ID_SCHEDULING_BUTTON)).isDisplayed();
 	}
 
@@ -40,48 +52,47 @@ public class SchedulePage {
 	}
 
 	public void clickAlterScheduling() {
-		driver.findElement(By.className("icon-pencil")).click();
+		driver.findElement(By.className(CLASSNAME_ALTER_SCHEDULE)).click();
 	}
-	
-	public String getTextToListScheduleEmpty(){
-		return driver.findElement(By.xpath("//*[@id='atividades']/li/div")).getText();
+
+	public String getTextToListScheduleEmpty() {
+		return driver.findElement(By.xpath(XPATH_EMPTY_LIST)).getText();
 	}
-	public String getTextToNoteItemListSchedule(){
-		return driver.findElement(By.xpath("//*[@id='atividades']/li/div[2]/div/div[3]/blockquote/div")).getText();
+
+	public String getTextToNoteItemListSchedule() {
+		return driver.findElement(By.xpath(XPATH_NOTE_ITEM_LIST)).getText();
 	}
 
 	public void setDoneCall() {
-		driver.findElement(By.className("check_clear")).click();
-		
+		driver.findElement(By.className(CLASS_NAME_CHECK)).click();
 	}
 
-	public boolean isDoneCall() {		
-		return driver.findElement(By.className("check_out")).isDisplayed();
+	public boolean isDoneCall() {
+		return driver.findElement(By.className(CLASSNAME_CHECK_OUT)).isDisplayed();
 	}
 
 	public void commentCall(String text) {
-		driver.findElement(By.className("link_mostrar")).click();
-		driver.findElement(By.xpath("//*[@id='atividades']/li/div[2]/div/div[4]/textarea")).sendKeys(text);
-		driver.findElement(By.linkText("Salvar")).click();
+		driver.findElement(By.className(CLASSNAME_SHOW_NOTE)).click();
+		driver.findElement(By.xpath(XPATH_NOTE_INPUT)).sendKeys(text);
+		driver.findElement(By.linkText(LINK_SAVE)).click();
 	}
 
 	public String getCommentCall() {
-		return driver.findElement(By.id("id_descricao")).getText();
+		return driver.findElement(By.id(ID_DESCRIPTION)).getText();
 	}
-	
-	public void filterByUser(){
-		driver.findElement(By.id("id_colaborador_chzn")).click();
-		driver.findElement(By.id("id_colaborador_chzn_o_2")).click();
+
+	public void filterByUser() {
+		driver.findElement(By.id(ID_SELECT_USER)).click();
+		driver.findElement(By.id(ID_USER_2)).click();
 	}
-	
-	public void filterByCompletedActivity(){
-		driver.findElement(By.id("id_status_chzn")).click();
-		driver.findElement(By.id("id_status_chzn_o_2")).click();
+
+	public void filterByCompletedActivity() {
+		driver.findElement(By.id(ID_SELECT_FILTER)).click();
+		driver.findElement(By.id(ID_OPTION_2)).click();
 	}
 
 	public boolean isVisibleButtonActivity() {
-		return driver.findElement(By.id("btn_registrar_atividade")).isDisplayed();
+		return driver.findElement(By.id(ID_ACTIVITY_BUTTON)).isDisplayed();
 	}
-	
-	
+
 }

@@ -18,7 +18,7 @@ public class DefaultClassTest {
 	private static final String LOGIN_URL = "http://qa.meuspedidos.com.br/login/";
 	private static final String EMAIL_LOGIN = "faustfelipe@gmail.com";
 	private static final String PASSWORD_LOGIN = "1234";
-	
+
 	@BeforeTest
 	public void setUp() {
 		initBrowser();
@@ -30,16 +30,16 @@ public class DefaultClassTest {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
-	
-	private void initLogin(){
+
+	private void initLogin() {
 		loginPage = new LoginPage(driver);
 		driver.get(LOGIN_URL);
-		loginPage.doLogin(EMAIL_LOGIN,PASSWORD_LOGIN);
+		loginPage.doLogin(EMAIL_LOGIN, PASSWORD_LOGIN);
 	}
-	
+
 	@AfterTest
-	public void quitTest(){
+	public void quitTest() {
 		driver.quit();
 	}
-	
+
 }

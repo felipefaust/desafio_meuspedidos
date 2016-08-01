@@ -18,26 +18,26 @@ public class NewSchedulingPage {
 	private static final String XPATH_DELETE_BUTTON = "//*[@id='form-cadastro']/div[9]/a[3]";
 	private static final String ID_DELETE_BUTTON = "btn_excluir_atividade_modal";
 	protected WebDriver driver;
-	
+
 	public NewSchedulingPage(WebDriver driver) {
-		this.driver=driver;
+		this.driver = driver;
 	}
-	
-	public boolean isVisibleNewScheduling(){
+
+	public boolean isVisibleNewScheduling() {
 		return driver.findElement(By.id(ID_CALL_OPTION_TYPE)).isDisplayed();
 	}
-	
-	public void clickTypeCallOption(){
+
+	public void clickTypeCallOption() {
 		driver.findElement(By.id(ID_CALL_OPTION_TYPE)).click();
 	}
-	
-	public void clickTypeActivityOption(){
+
+	public void clickTypeActivityOption() {
 		driver.findElement(By.id(ID_ACTIVITY_OPTION_TYPE)).click();
 	}
 
 	public void setCostumer(String costumerName) {
 		WebElement costumerInputText = driver.findElement(By.id(ID_COSTUMER_INPUT));
-		costumerInputText.sendKeys(costumerName);	
+		costumerInputText.sendKeys(costumerName);
 		driver.findElement(By.partialLinkText(costumerName)).click();
 	}
 
@@ -46,18 +46,18 @@ public class NewSchedulingPage {
 	}
 
 	public void sendKeysNote(String note) {
-		 driver.findElement(By.id(ID_NOTE)).sendKeys(note);
+		driver.findElement(By.id(ID_NOTE)).sendKeys(note);
 	}
 
 	public void clickSave() {
-		 driver.findElement(By.linkText(LINK_SAVE)).click();		
+		driver.findElement(By.linkText(LINK_SAVE)).click();
 	}
-	
+
 	public void clickDeleteCall() {
 		driver.findElement(By.linkText(LINK_DELETE_CALL)).click();
 	}
-	
-	public void deleteScheduling(){
+
+	public void deleteScheduling() {
 		driver.findElement(By.xpath(XPATH_DELETE_BUTTON)).click();
 		driver.findElement(By.id(ID_DELETE_BUTTON)).click();
 	}
@@ -65,8 +65,8 @@ public class NewSchedulingPage {
 	public void closeScheduling() {
 		driver.findElement(By.linkText(LINK_CANCEL)).click();
 	}
-	
-	public void changeUser(String userName){
+
+	public void changeUser(String userName) {
 		Select user = new Select(driver.findElement(By.xpath(XPATH_USER_SELECT)));
 		user.selectByVisibleText(userName);
 	}
