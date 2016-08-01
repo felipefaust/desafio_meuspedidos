@@ -8,6 +8,7 @@ import br.com.desafio.desafio_meus_pedidos_pages.NewSchedulingPage;
 import br.com.desafio.desafio_meus_pedidos_pages.SchedulePage;
 
 public class NewSchedulingByOtherUserTest extends DefaultClassTest{
+	private static final String OTHER_USER = "Faust2";
 	private static final String SUCCESS_TEXT_SAVE = "Visita cadastrada com sucesso!";
 	private static final String EMPTY_LIST_TEXT = "Não possui atividade.";
 	private SchedulePage schedulePage;
@@ -32,7 +33,7 @@ public class NewSchedulingByOtherUserTest extends DefaultClassTest{
 
 	private void createSchedulingWithOtherUser() {
 		Assert.assertEquals(newSchedulingPage.isVisibleNewScheduling(), true);
-		newSchedulingPage.changeUser();
+		newSchedulingPage.changeUser(OTHER_USER);
 		newSchedulingPage.clickSave();
 		Assert.assertEquals(schedulePage.isVisibleToasterSuccess(), SUCCESS_TEXT_SAVE);
 	}

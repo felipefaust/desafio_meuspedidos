@@ -11,7 +11,7 @@ import br.com.desafio.desafio_meus_pedidos_pages.SchedulePage;
 
 public class NewSchedulingTest extends DefaultClassTest{
 	private static final String EMPTY_LIST_TEXT = "Não possui atividade.";
-	private static final String TEXT_NOTE = "teste observacao 123";
+	private static final String TEXT_NOTE_CALL = "teste observacao 123";
 	private static final String SUCCESS_TEXT_SAVE = "Ligação cadastrada com sucesso!";
 	private static final String NOTE_TEXT = "Teste de observação!@123";
 	private SchedulePage schedulePage;
@@ -30,14 +30,12 @@ public class NewSchedulingTest extends DefaultClassTest{
 	private void setDoneAndCommentCall() {
 		schedulePage.setDoneCall();
 		Assert.assertEquals(schedulePage.isDoneCall(), true);
-		schedulePage.commentCall(TEXT_NOTE);
+		schedulePage.commentCall(TEXT_NOTE_CALL);
 		schedulePage.clickAlterScheduling();
-		Assert.assertEquals(schedulePage.getCommentCall(),TEXT_NOTE);
-		newSchedulingPage.closeScheduling();
+		Assert.assertEquals(schedulePage.getCommentCall(),TEXT_NOTE_CALL);
 	}
 
 	private void deleteAndValidateScheduling() {
-		schedulePage.clickAlterScheduling();
 		newSchedulingPage.deleteScheduling();
 		Assert.assertEquals(schedulePage.isVisibleSchedulePage(),true);
 		Assert.assertEquals(schedulePage.getTextToListScheduleEmpty(), EMPTY_LIST_TEXT);
@@ -61,7 +59,7 @@ public class NewSchedulingTest extends DefaultClassTest{
 	}
 
 	private void setAndValidadeCostumer() {
-		newSchedulingPage.setCostumer("supermercado");
+		newSchedulingPage.setCostumer("Supermercado do Bairro");
 		Assert.assertEquals(newSchedulingPage.isVisibleCostumerSelected(), true);
 	}
 
