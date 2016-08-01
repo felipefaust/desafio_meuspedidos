@@ -1,20 +1,17 @@
 package br.com.desafio.desafio_meus_pedidos_tests;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import br.com.desafio.desafio_meus_pedidos_pages.LoginPage;
-import br.com.desafio.desafio_meus_pedidos_pages.NewActivityPage;
 import br.com.desafio.desafio_meus_pedidos_pages.NewSchedulingPage;
 import br.com.desafio.desafio_meus_pedidos_pages.SchedulePage;
 
 public class NewSchedulingTest extends DefaultClassTest {
 	private static final String COSTUMER_NAME = "Supermercado do Bairro";
 	private static final String EMPTY_LIST_TEXT = "Não possui atividade.";
-	private static final String TEXT_NOTE_CALL = "teste observacao 123";
-	private static final String SUCCESS_TEXT_SAVE = "Ligação cadastrada com sucesso!";
 	private static final String NOTE_TEXT = "Teste de observação!@123";
+	private static final String SUCCESS_TEXT_SAVE = "Ligação cadastrada com sucesso!";
+	private static final String TEXT_NOTE_CALL = "teste observacao 123";
 	private SchedulePage schedulePage;
 	private NewSchedulingPage newSchedulingPage;
 

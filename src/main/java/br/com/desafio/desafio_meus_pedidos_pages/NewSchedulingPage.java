@@ -6,17 +6,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class NewSchedulingPage {
-	private static final String ID_NOTE = "id_observacao";
-	private static final String LINK_DELETE_CALL = "Excluir Ligação";
-	private static final String XPATH_USER_SELECT = "//*[@id='form-cadastro']/div[5]/div[2]/select";
-	private static final String LINK_CANCEL = "Cancelar";
-	private static final String LINK_SAVE = "Salvar";
-	private static final String ID_COSTUMER_SELECTED = "selecionado_autocomplete_id_cliente_atividade";
-	private static final String ID_COSTUMER_INPUT = "id_cliente_atividade";
 	private static final String ID_ACTIVITY_OPTION_TYPE = "id_tipo_atividade_2";
 	private static final String ID_CALL_OPTION_TYPE = "uniform-id_tipo_atividade_1";
-	private static final String XPATH_DELETE_BUTTON = "//*[@id='form-cadastro']/div[9]/a[3]";
+	private static final String ID_COSTUMER_INPUT = "id_cliente_atividade";
+	private static final String ID_COSTUMER_SELECTED = "selecionado_autocomplete_id_cliente_atividade";
 	private static final String ID_DELETE_BUTTON = "btn_excluir_atividade_modal";
+	private static final String ID_NOTE = "id_observacao";
+	private static final String LINK_CANCEL = "Cancelar";
+	private static final String LINK_DELETE_CALL = "Excluir Ligação";
+	private static final String LINK_SAVE = "Salvar";
+	private static final String XPATH_DELETE_BUTTON = "//*[@id='form-cadastro']/div[9]/a[3]";
+	private static final String XPATH_USER_SELECT = "//*[@id='form-cadastro']/div[5]/div[2]/select";
+
 	protected WebDriver driver;
 
 	public NewSchedulingPage(WebDriver driver) {

@@ -7,24 +7,26 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 public class SchedulePage {
-	private static final String ID_DESCRIPTION = "id_descricao";
-	private static final String ID_ACTIVITY_BUTTON = "btn_registrar_atividade";
-	private static final String ID_OPTION_2 = "id_status_chzn_o_2";
-	private static final String ID_SELECT_FILTER = "id_status_chzn";
-	private static final String ID_USER_2 = "id_colaborador_chzn_o_2";
-	private static final String ID_SELECT_USER = "id_colaborador_chzn";
-	private static final String LINK_SAVE = "Salvar";
-	private static final String XPATH_NOTE_INPUT = "//*[@id='atividades']/li/div[2]/div/div[4]/textarea";
-	private static final String CLASSNAME_SHOW_NOTE = "link_mostrar";
-	private static final String CLASSNAME_CHECK_OUT = "check_out";
-	private static final String CLASS_NAME_CHECK = "check_clear";
-	private static final String XPATH_NOTE_ITEM_LIST = "//*[@id='atividades']/li/div[2]/div/div[3]/blockquote/div";
-	private static final String XPATH_EMPTY_LIST = "//*[@id='atividades']/li/div";
 	private static final String CLASSNAME_ALTER_SCHEDULE = "icon-pencil";
-	private static final String ID_NEW_ACTIVITY_BUTTON = ID_ACTIVITY_BUTTON;
-	private static final String CLASS_TOASTER = "gritter-message";
+	private static final String CLASSNAME_CHECK = "check_clear";
+	private static final String CLASSNAME_CHECK_OUT = "check_out";
+	private static final String CLASSNAME_SHOW_NOTE = "link_mostrar";
+	private static final String CLASSNAME_TOASTER = "gritter-message";
+	private static final String ID_ACTIVITY_BUTTON = "btn_registrar_atividade";
+	private static final String ID_DESCRIPTION = "id_descricao";
 	private static final String ID_MENU_SCHEDULE = "aba_agenda";
+	private static final String ID_NEW_ACTIVITY_BUTTON = ID_ACTIVITY_BUTTON;
+	private static final String ID_OPTION_2 = "id_status_chzn_o_2";
 	private static final String ID_SCHEDULING_BUTTON = "btn_novo_agendamento";
+	private static final String ID_SELECT_FILTER = "id_status_chzn";
+	private static final String ID_SELECT_USER = "id_colaborador_chzn";
+	private static final String ID_USER_2 = "id_colaborador_chzn_o_2";
+	private static final String LINK_SAVE = "Salvar";
+	private static final String XPATH_EMPTY_LIST = "//*[@id='atividades']/li/div";
+	private static final String XPATH_NOTE_INPUT = "//*[@id='atividades']/li/div[2]/div/div[4]/textarea";
+	private static final String XPATH_NOTE_ITEM_LIST = "//*[@id='atividades']/li/div[2]/div/div[3]/blockquote/div";
+	
+	
 	private WebDriver driver;
 
 	public SchedulePage(WebDriver driver) {
@@ -48,7 +50,7 @@ public class SchedulePage {
 	}
 
 	public String toasterSuccessIsVisible() {
-		return driver.findElement(By.className(CLASS_TOASTER)).getText();
+		return driver.findElement(By.className(CLASSNAME_TOASTER)).getText();
 	}
 
 	public void alterSchedulingClick() {
@@ -64,7 +66,7 @@ public class SchedulePage {
 	}
 
 	public void setDoneCall() {
-		driver.findElement(By.className(CLASS_NAME_CHECK)).click();
+		driver.findElement(By.className(CLASSNAME_CHECK)).click();
 	}
 
 	public boolean callIsDone() {

@@ -15,8 +15,8 @@ import br.com.desafio.desafio_meus_pedidos_pages.LoginPage;
 public class DefaultClassTest {
 	protected WebDriver driver;
 	private LoginPage loginPage;
-	private static final String LOGIN_URL = "http://qa.meuspedidos.com.br/login/";
 	private static final String EMAIL_LOGIN = "faustfelipe@gmail.com";
+	private static final String LOGIN_URL = "http://qa.meuspedidos.com.br/login/";
 	private static final String PASSWORD_LOGIN = "1234";
 
 	@BeforeTest
