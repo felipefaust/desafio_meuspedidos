@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Meus Pedidos Desafio">
+  <test verbose="2" name="NewScheduling">
+    <classes>
+      <class name="br.com.desafio.desafio_meus_pedidos_tests.NewSchedulingTest"/>
+    </classes>
+  </test>
+  <test verbose="2" name=".NewActivity">
+    <classes>
+      <class name="br.com.desafio.desafio_meus_pedidos_tests.NewActivityTest"/>
+    </classes>
+  </test>
+  <test verbose="2" name="NewSchedulingByOtherUser">
+    <classes>
+      <class name="br.com.desafio.desafio_meus_pedidos_tests.NewSchedulingByOtherUserTest"/>
+    </classes>
+  </test>
+</suite> 
