@@ -35,23 +35,23 @@ public class SchedulePage {
 		driver.findElement(By.id(ID_MENU_SCHEDULE)).click();
 	}
 
-	public void clickNewSchedulingButton() {
+	public void newSchedulingButtonClick() {
 		driver.findElement(By.id(ID_SCHEDULING_BUTTON)).click();
 	}
 
-	public void clickNewActivityButton() {
+	public void newActivityButtonClick() {
 		driver.findElement(By.id(ID_NEW_ACTIVITY_BUTTON)).click();
 	}
 
-	public boolean isVisibleSchedulePage() {
+	public boolean schedulePageIsVisible() {
 		return driver.findElement(By.id(ID_SCHEDULING_BUTTON)).isDisplayed();
 	}
 
-	public String isVisibleToasterSuccess() {
+	public String toasterSuccessIsVisible() {
 		return driver.findElement(By.className(CLASS_TOASTER)).getText();
 	}
 
-	public void clickAlterScheduling() {
+	public void alterSchedulingClick() {
 		driver.findElement(By.className(CLASSNAME_ALTER_SCHEDULE)).click();
 	}
 
@@ -67,7 +67,7 @@ public class SchedulePage {
 		driver.findElement(By.className(CLASS_NAME_CHECK)).click();
 	}
 
-	public boolean isDoneCall() {
+	public boolean callIsDone() {
 		return driver.findElement(By.className(CLASSNAME_CHECK_OUT)).isDisplayed();
 	}
 
@@ -91,7 +91,7 @@ public class SchedulePage {
 		driver.findElement(By.id(ID_OPTION_2)).click();
 	}
 
-	public boolean isVisibleButtonActivity() {
+	public boolean buttonActivityIsVisibe() {
 		return driver.findElement(By.id(ID_ACTIVITY_BUTTON)).isDisplayed();
 	}
 

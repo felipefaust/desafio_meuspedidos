@@ -11,11 +11,11 @@ public class NewActivityPage extends NewSchedulingPage {
 		super(driver);
 	}
 
-	public boolean isVisibleNewActivity() {
-		return isVisibleNewScheduling();
+	public boolean newActivityIsVisible() {
+		return newSchedulingIsVisible();
 	}
 
-	public void sendKeysDescription(String description) {
+	public void descriptionSendKeys(String description) {
 		driver.findElement(By.id(ID_DESCRIPTION)).sendKeys(description);
 	}
 

@@ -30,15 +30,15 @@ public class NewSchedulingTest extends DefaultClassTest {
 
 	private void setDoneAndCommentCall() {
 		schedulePage.setDoneCall();
-		Assert.assertEquals(schedulePage.isDoneCall(), true);
+		Assert.assertEquals(schedulePage.callIsDone(), true);
 		schedulePage.commentCall(TEXT_NOTE_CALL);
-		schedulePage.clickAlterScheduling();
+		schedulePage.alterSchedulingClick();
 		Assert.assertEquals(schedulePage.getCommentCall(), TEXT_NOTE_CALL);
 	}
 
 	private void deleteAndValidateScheduling() {
 		newSchedulingPage.deleteScheduling();
-		Assert.assertEquals(schedulePage.isVisibleSchedulePage(), true);
+		Assert.assertEquals(schedulePage.schedulePageIsVisible(), true);
 		Assert.assertEquals(schedulePage.getTextToListScheduleEmpty(), EMPTY_LIST_TEXT);
 	}
 
@@ -48,30 +48,30 @@ public class NewSchedulingTest extends DefaultClassTest {
 
 	private void createAndValidateScheduling() {
 		openAndValidateScheduling();
-		newSchedulingPage.clickTypeCallOption();
+		newSchedulingPage.typeCallOptionClick();
 		setAndValidadeCostumer();
-		newSchedulingPage.sendKeysNote(NOTE_TEXT);
+		newSchedulingPage.noteSendKeys(NOTE_TEXT);
 		saveAndValidadeScheduling();
 	}
 
 	private void saveAndValidadeScheduling() {
 		newSchedulingPage.clickSave();
-		Assert.assertEquals(schedulePage.isVisibleToasterSuccess(), SUCCESS_TEXT_SAVE);
+		Assert.assertEquals(schedulePage.toasterSuccessIsVisible(), SUCCESS_TEXT_SAVE);
 	}
 
 	private void setAndValidadeCostumer() {
 		newSchedulingPage.setCostumer(COSTUMER_NAME);
-		Assert.assertEquals(newSchedulingPage.isVisibleCostumerSelected(), true);
+		Assert.assertEquals(newSchedulingPage.costumerSelectedIsVisible(), true);
 	}
 
 	private void openAndValidateScheduling() {
-		schedulePage.clickNewSchedulingButton();
-		Assert.assertEquals(newSchedulingPage.isVisibleNewScheduling(), true);
+		schedulePage.newSchedulingButtonClick();
+		Assert.assertEquals(newSchedulingPage.newSchedulingIsVisible(), true);
 	}
 
 	private void openAndValidateSchedule() {
 		schedulePage.goToSchedulePage();
-		Assert.assertEquals(schedulePage.isVisibleSchedulePage(), true);
+		Assert.assertEquals(schedulePage.schedulePageIsVisible(), true);
 	}
 
 	private void setupPages() {

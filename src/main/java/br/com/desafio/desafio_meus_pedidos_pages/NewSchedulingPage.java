@@ -23,15 +23,15 @@ public class NewSchedulingPage {
 		this.driver = driver;
 	}
 
-	public boolean isVisibleNewScheduling() {
+	public boolean newSchedulingIsVisible() {
 		return driver.findElement(By.id(ID_CALL_OPTION_TYPE)).isDisplayed();
 	}
 
-	public void clickTypeCallOption() {
+	public void typeCallOptionClick() {
 		driver.findElement(By.id(ID_CALL_OPTION_TYPE)).click();
 	}
 
-	public void clickTypeActivityOption() {
+	public void typeActivityOptionClick() {
 		driver.findElement(By.id(ID_ACTIVITY_OPTION_TYPE)).click();
 	}
 
@@ -41,11 +41,11 @@ public class NewSchedulingPage {
 		driver.findElement(By.partialLinkText(costumerName)).click();
 	}
 
-	public boolean isVisibleCostumerSelected() {
+	public boolean costumerSelectedIsVisible() {
 		return driver.findElement(By.id(ID_COSTUMER_SELECTED)).isDisplayed();
 	}
 
-	public void sendKeysNote(String note) {
+	public void noteSendKeys(String note) {
 		driver.findElement(By.id(ID_NOTE)).sendKeys(note);
 	}
 
@@ -53,7 +53,7 @@ public class NewSchedulingPage {
 		driver.findElement(By.linkText(LINK_SAVE)).click();
 	}
 
-	public void clickDeleteCall() {
+	public void deleteCallClick() {
 		driver.findElement(By.linkText(LINK_DELETE_CALL)).click();
 	}
 

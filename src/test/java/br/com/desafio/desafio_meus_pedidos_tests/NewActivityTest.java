@@ -23,9 +23,9 @@ public class NewActivityTest extends DefaultClassTest {
 	}
 
 	private void deleteAndValidateActivity() {
-		schedulePage.clickAlterScheduling();
+		schedulePage.alterSchedulingClick();
 		newActivityPage.deleteActivity();
-		Assert.assertEquals(schedulePage.isVisibleSchedulePage(), true);
+		Assert.assertEquals(schedulePage.schedulePageIsVisible(), true);
 		Assert.assertEquals(schedulePage.getTextToListScheduleEmpty(), EMPTY_LIST_TEXT);
 	}
 
@@ -35,11 +35,11 @@ public class NewActivityTest extends DefaultClassTest {
 	}
 
 	private void registerActivity() {
-		schedulePage.clickNewActivityButton();
-		Assert.assertEquals(newActivityPage.isVisibleNewActivity(), true);
-		newActivityPage.sendKeysDescription("Atividade teste");
+		schedulePage.newActivityButtonClick();
+		Assert.assertEquals(newActivityPage.newActivityIsVisible(), true);
+		newActivityPage.descriptionSendKeys("Atividade teste");
 		newActivityPage.clickSave();
-		Assert.assertEquals(schedulePage.isVisibleToasterSuccess(), SUCCESS_TEXT_SAVE);
+		Assert.assertEquals(schedulePage.toasterSuccessIsVisible(), SUCCESS_TEXT_SAVE);
 
 	}
 

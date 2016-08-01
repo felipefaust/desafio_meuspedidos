@@ -17,25 +17,25 @@ public class NewSchedulingByOtherUserTest extends DefaultClassTest {
 	public void newSchedulingByOtherUser() {
 		setupPages();
 		schedulePage.goToSchedulePage();
-		schedulePage.clickNewSchedulingButton();
+		schedulePage.newSchedulingButtonClick();
 		createSchedulingWithOtherUser();
 		findAndDeleteSchedule();
 	}
 
 	private void findAndDeleteSchedule() {
 		schedulePage.filterByUser();
-		schedulePage.clickAlterScheduling();
+		schedulePage.alterSchedulingClick();
 		newSchedulingPage.deleteScheduling();
-		Assert.assertEquals(schedulePage.isVisibleSchedulePage(), true);
+		Assert.assertEquals(schedulePage.schedulePageIsVisible(), true);
 		Assert.assertEquals(schedulePage.getTextToListScheduleEmpty(), EMPTY_LIST_TEXT);
 	}
 
 	private void createSchedulingWithOtherUser() {
-		Assert.assertEquals(newSchedulingPage.isVisibleNewScheduling(), true);
-		newSchedulingPage.clickTypeCallOption();
+		Assert.assertEquals(newSchedulingPage.newSchedulingIsVisible(), true);
+		newSchedulingPage.typeCallOptionClick();
 		newSchedulingPage.changeUser(OTHER_USER);
 		newSchedulingPage.clickSave();
-		Assert.assertEquals(schedulePage.isVisibleToasterSuccess(), SUCCESS_TEXT_SAVE);
+		Assert.assertEquals(schedulePage.toasterSuccessIsVisible(), SUCCESS_TEXT_SAVE);
 	}
 
 	private void setupPages() {
