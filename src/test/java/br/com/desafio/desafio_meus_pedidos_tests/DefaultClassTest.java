@@ -21,15 +21,18 @@ public class DefaultClassTest {
 	
 	@BeforeTest
 	public void setUp() {
-		
+		initBrowser();
+		initLogin();
+	}
+
+	private void initBrowser() {
 		driver = new FirefoxDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		loginPage = new LoginPage(driver);
-		init();
 	}
 	
-	private void init(){
+	private void initLogin(){
+		loginPage = new LoginPage(driver);
 		driver.get(LOGIN_URL);
 		loginPage.doLogin(EMAIL_LOGIN,PASSWORD_LOGIN);
 	}

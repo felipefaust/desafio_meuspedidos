@@ -20,7 +20,6 @@ public class NewSchedulingByOtherUserTest extends DefaultClassTest{
 		schedulePage.clickNewSchedulingButton();
 		createSchedulingWithOtherUser();
 		findAndDeleteSchedule();
-		
 	}
 
 	private void findAndDeleteSchedule() {

@@ -8,6 +8,7 @@ import br.com.desafio.desafio_meus_pedidos_pages.NewSchedulingPage;
 import br.com.desafio.desafio_meus_pedidos_pages.SchedulePage;
 
 public class NewActivityTest extends DefaultClassTest{
+	private static final String SUCCESS_TEXT_SAVE = "Visita cadastrada com sucesso!";
 	private static final String EMPTY_LIST_TEXT = "Não possui atividade.";
 	private SchedulePage schedulePage;
 	private NewActivityPage newActivityPage;
@@ -38,7 +39,7 @@ public class NewActivityTest extends DefaultClassTest{
 		Assert.assertEquals(newActivityPage.isVisibleNewActivity(), true);
 		newActivityPage.sendKeysDescription("Atividade teste");
 		newActivityPage.clickSave();
-		Assert.assertEquals(schedulePage.isVisibleToasterSuccess(), "Visita cadastrada com sucesso!");
+		Assert.assertEquals(schedulePage.isVisibleToasterSuccess(), SUCCESS_TEXT_SAVE);
 		
 	}
 	
