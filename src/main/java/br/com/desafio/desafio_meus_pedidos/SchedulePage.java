@@ -1,9 +1,12 @@
 package br.com.desafio.desafio_meus_pedidos;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class SchedulePage {
+	private static final String ID_ACTIVITY_LIST = "atividades";
 	private static final String CLASSNAME_ALTER_SCHEDULE = "icon-pencil";
 	private static final String CLASSNAME_CHECK = "check_clear";
 	private static final String CLASSNAME_CHECK_OUT = "check_out";
@@ -19,7 +22,6 @@ public class SchedulePage {
 	private static final String ID_SELECT_USER = "id_colaborador_chzn";
 	private static final String ID_USER_2 = "id_colaborador_chzn_o_2";
 	private static final String LINK_SAVE = "Salvar";
-	private static final String XPATH_EMPTY_LIST = "//*[@id='atividades']/li/div";
 	private static final String XPATH_NOTE_INPUT = "//*[@id='atividades']/li/div[2]/div/div[4]/textarea";
 	private static final String XPATH_NOTE_ITEM_LIST = "//*[@id='atividades']/li/div[2]/div/div[3]/blockquote/div";
 	private WebDriver driver;
@@ -49,13 +51,13 @@ public class SchedulePage {
 	}
 
 	public void alterScheduleClick() {
-		sleep();
+		sleep(999);
 		driver.findElement(By.className(CLASSNAME_ALTER_SCHEDULE)).click();
 	}
 
 	public String getTextToListScheduleEmpty() {
-		sleep();
-		return driver.findElement(By.xpath(XPATH_EMPTY_LIST)).getText();
+		sleep(1500);
+		return driver.findElement(By.id(ID_ACTIVITY_LIST)).getText();
 	}
 
 	public String getTextToNoteItemListSchedule() {
@@ -94,9 +96,9 @@ public class SchedulePage {
 		return driver.findElement(By.id(ID_ACTIVITY_BUTTON)).isDisplayed();
 	}
 
-	public void sleep() {
+	public void sleep(int milisec) {
 		try {
-			Thread.sleep(999);
+			Thread.sleep(milisec);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
