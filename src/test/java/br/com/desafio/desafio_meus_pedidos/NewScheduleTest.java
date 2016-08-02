@@ -13,7 +13,7 @@ public class NewScheduleTest extends BaseTest {
 	private static final String SUCCESS_TEXT_SAVE = "Ligação cadastrada com sucesso!";
 	private static final String TEXT_NOTE_CALL = "teste observacao 123";
 	private SchedulePage schedulePage;
-	private NewSchedulePage newSchedulegPage;
+	private NewSchedulePage newSchedulePage;
 
 	@Test
 	public void scheduleTest() {
@@ -30,14 +30,14 @@ public class NewScheduleTest extends BaseTest {
 		Assert.assertEquals(schedulePage.callIsDone(), true);
 		schedulePage.commentCall(TEXT_NOTE_CALL);
 		schedulePage.alterScheduleClick();
-		Assert.assertEquals(newSchedulegPage.newScheduleIsVisible(), true);
+		Assert.assertEquals(newSchedulePage.newScheduleIsVisible(), true);
 		Assert.assertEquals(schedulePage.getCommentCall(), TEXT_NOTE_CALL);
-		newSchedulegPage.closeScheduleModal();
+		newSchedulePage.closeScheduleModal();
 	}
 
 	private void deleteAndValidateScheduleHasBeenDeleted() {
 		schedulePage.alterScheduleClick();
-		newSchedulegPage.deleteScheduling();
+		newSchedulePage.deleteScheduling();
 		Assert.assertEquals(schedulePage.getTextToListScheduleEmpty(), EMPTY_LIST_TEXT);
 	}
 
@@ -47,25 +47,25 @@ public class NewScheduleTest extends BaseTest {
 
 	private void createAndValidateScheduling() {
 		openAndValidateScheduling();
-		newSchedulegPage.typeCallOptionClick();
+		newSchedulePage.typeCallOptionClick();
 		setAndValidadeCostumer();
-		newSchedulegPage.noteSendKeys(NOTE_TEXT);
+		newSchedulePage.noteSendKeys(NOTE_TEXT);
 		saveAndValidadeScheduling();
 	}
 
 	private void saveAndValidadeScheduling() {
-		newSchedulegPage.clickSave();
+		newSchedulePage.clickSave();
 		Assert.assertEquals(schedulePage.toasterSuccessIsVisible(), SUCCESS_TEXT_SAVE);
 	}
 
 	private void setAndValidadeCostumer() {
-		newSchedulegPage.setCostumer(COSTUMER_NAME);
-		Assert.assertEquals(newSchedulegPage.costumerSelectedIsVisible(), true);
+		newSchedulePage.setCostumer(COSTUMER_NAME);
+		Assert.assertEquals(newSchedulePage.costumerSelectedIsVisible(), true);
 	}
 
 	private void openAndValidateScheduling() {
 		schedulePage.newScheduleButtonClick();
-		Assert.assertEquals(newSchedulegPage.newScheduleIsVisible(), true);
+		Assert.assertEquals(newSchedulePage.newScheduleIsVisible(), true);
 	}
 
 	private void openAndValidateSchedule() {
@@ -75,7 +75,7 @@ public class NewScheduleTest extends BaseTest {
 
 	private void setupPages() {
 		schedulePage = new SchedulePage(driver);
-		newSchedulegPage = new NewSchedulePage(driver);
+		newSchedulePage = new NewSchedulePage(driver);
 	}
 
 }
