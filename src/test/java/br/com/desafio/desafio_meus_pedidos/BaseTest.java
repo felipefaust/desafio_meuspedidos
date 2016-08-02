@@ -1,18 +1,15 @@
-package br.com.desafio.desafio_meus_pedidos_tests;
+package br.com.desafio.desafio_meus_pedidos;
 
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-import com.thoughtworks.selenium.DefaultSelenium;
+import br.com.desafio.desafio_meus_pedidos.LoginPage;
 
-import br.com.desafio.desafio_meus_pedidos_pages.LoginPage;
-
-public class DefaultClassTest {
+public class BaseTest {
 	protected WebDriver driver;
 	private LoginPage loginPage;
 	private static final String EMAIL_LOGIN = "faustfelipe@gmail.com";
@@ -28,7 +25,7 @@ public class DefaultClassTest {
 	private void initBrowser() {
 		driver = new FirefoxDriver();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 	}
 
 	private void initLogin() {

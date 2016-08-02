@@ -1,11 +1,11 @@
-package br.com.desafio.desafio_meus_pedidos_pages;
+package br.com.desafio.desafio_meus_pedidos;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-public class NewSchedulingPage {
+public class NewSchedulePage {
 	private static final String ID_ACTIVITY_OPTION_TYPE = "id_tipo_atividade_2";
 	private static final String ID_CALL_OPTION_TYPE = "uniform-id_tipo_atividade_1";
 	private static final String ID_COSTUMER_INPUT = "id_cliente_atividade";
@@ -20,11 +20,11 @@ public class NewSchedulingPage {
 
 	protected WebDriver driver;
 
-	public NewSchedulingPage(WebDriver driver) {
+	public NewSchedulePage(WebDriver driver) {
 		this.driver = driver;
 	}
 
-	public boolean newSchedulingIsVisible() {
+	public boolean newScheduleIsVisible() {	
 		return driver.findElement(By.id(ID_CALL_OPTION_TYPE)).isDisplayed();
 	}
 
@@ -63,7 +63,7 @@ public class NewSchedulingPage {
 		driver.findElement(By.id(ID_DELETE_BUTTON)).click();
 	}
 
-	public void closeScheduling() {
+	public void closeScheduleModal() {
 		driver.findElement(By.linkText(LINK_CANCEL)).click();
 	}
 

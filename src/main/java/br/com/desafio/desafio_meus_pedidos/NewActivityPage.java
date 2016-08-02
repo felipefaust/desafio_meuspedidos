@@ -1,9 +1,9 @@
-package br.com.desafio.desafio_meus_pedidos_pages;
+package br.com.desafio.desafio_meus_pedidos;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class NewActivityPage extends NewSchedulingPage {
+public class NewActivityPage extends NewSchedulePage {
 
 	private static final String ID_DESCRIPTION = "id_descricao";
 
@@ -12,7 +12,7 @@ public class NewActivityPage extends NewSchedulingPage {
 	}
 
 	public boolean newActivityIsVisible() {
-		return newSchedulingIsVisible();
+		return newScheduleIsVisible();
 	}
 
 	public void descriptionSendKeys(String description) {

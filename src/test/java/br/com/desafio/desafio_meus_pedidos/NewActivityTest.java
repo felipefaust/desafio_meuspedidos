@@ -1,13 +1,12 @@
-package br.com.desafio.desafio_meus_pedidos_tests;
+package br.com.desafio.desafio_meus_pedidos;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import br.com.desafio.desafio_meus_pedidos_pages.NewActivityPage;
-import br.com.desafio.desafio_meus_pedidos_pages.NewSchedulingPage;
-import br.com.desafio.desafio_meus_pedidos_pages.SchedulePage;
+import br.com.desafio.desafio_meus_pedidos.NewActivityPage;
+import br.com.desafio.desafio_meus_pedidos.SchedulePage;
 
-public class NewActivityTest extends DefaultClassTest {
+public class NewActivityTest extends BaseTest {
 	private static final String EMPTY_LIST_TEXT = "Não possui atividade.";
 	private static final String SUCCESS_TEXT_SAVE = "Visita cadastrada com sucesso!";
 	private SchedulePage schedulePage;
@@ -17,13 +16,13 @@ public class NewActivityTest extends DefaultClassTest {
 	public void newActivityTest() {
 		setupPages();
 		schedulePage.goToSchedulePage();
-		registerActivity();
+		registerActivityAndValidateMessageSuccess();
 		schedulePage.filterByCompletedActivity();
 		deleteAndValidateActivity();
 	}
 
 	private void deleteAndValidateActivity() {
-		schedulePage.alterSchedulingClick();
+		schedulePage.alterScheduleClick();
 		newActivityPage.deleteActivity();
 		Assert.assertEquals(schedulePage.schedulePageIsVisible(), true);
 		Assert.assertEquals(schedulePage.getTextToListScheduleEmpty(), EMPTY_LIST_TEXT);
@@ -34,7 +33,7 @@ public class NewActivityTest extends DefaultClassTest {
 		newActivityPage = new NewActivityPage(driver);
 	}
 
-	private void registerActivity() {
+	private void registerActivityAndValidateMessageSuccess() {
 		schedulePage.newActivityButtonClick();
 		Assert.assertEquals(newActivityPage.newActivityIsVisible(), true);
 		newActivityPage.descriptionSendKeys("Atividade teste");

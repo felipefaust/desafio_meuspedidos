@@ -1,19 +1,19 @@
-package br.com.desafio.desafio_meus_pedidos_tests;
+package br.com.desafio.desafio_meus_pedidos;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import br.com.desafio.desafio_meus_pedidos_pages.NewSchedulingPage;
-import br.com.desafio.desafio_meus_pedidos_pages.SchedulePage;
+import br.com.desafio.desafio_meus_pedidos.NewSchedulePage;
+import br.com.desafio.desafio_meus_pedidos.SchedulePage;
 
-public class NewSchedulingTest extends DefaultClassTest {
+public class NewScheduleTest extends BaseTest {
 	private static final String COSTUMER_NAME = "Supermercado do Bairro";
 	private static final String EMPTY_LIST_TEXT = "Não possui atividade.";
 	private static final String NOTE_TEXT = "Teste de observação!@123";
 	private static final String SUCCESS_TEXT_SAVE = "Ligação cadastrada com sucesso!";
 	private static final String TEXT_NOTE_CALL = "teste observacao 123";
 	private SchedulePage schedulePage;
-	private NewSchedulingPage newSchedulingPage;
+	private NewSchedulePage newSchedulegPage;
 
 	@Test
 	public void scheduleTest() {
@@ -22,20 +22,22 @@ public class NewSchedulingTest extends DefaultClassTest {
 		createAndValidateScheduling();
 		validateListScheduling();
 		setDoneAndCommentCall();
-		deleteAndValidateScheduling();
+		deleteAndValidateScheduleHasBeenDeleted();
 	}
 
 	private void setDoneAndCommentCall() {
 		schedulePage.setDoneCall();
 		Assert.assertEquals(schedulePage.callIsDone(), true);
 		schedulePage.commentCall(TEXT_NOTE_CALL);
-		schedulePage.alterSchedulingClick();
+		schedulePage.alterScheduleClick();
+		Assert.assertEquals(newSchedulegPage.newScheduleIsVisible(), true);
 		Assert.assertEquals(schedulePage.getCommentCall(), TEXT_NOTE_CALL);
+		newSchedulegPage.closeScheduleModal();
 	}
 
-	private void deleteAndValidateScheduling() {
-		newSchedulingPage.deleteScheduling();
-		Assert.assertEquals(schedulePage.schedulePageIsVisible(), true);
+	private void deleteAndValidateScheduleHasBeenDeleted() {
+		schedulePage.alterScheduleClick();
+		newSchedulegPage.deleteScheduling();
 		Assert.assertEquals(schedulePage.getTextToListScheduleEmpty(), EMPTY_LIST_TEXT);
 	}
 
@@ -45,25 +47,25 @@ public class NewSchedulingTest extends DefaultClassTest {
 
 	private void createAndValidateScheduling() {
 		openAndValidateScheduling();
-		newSchedulingPage.typeCallOptionClick();
+		newSchedulegPage.typeCallOptionClick();
 		setAndValidadeCostumer();
-		newSchedulingPage.noteSendKeys(NOTE_TEXT);
+		newSchedulegPage.noteSendKeys(NOTE_TEXT);
 		saveAndValidadeScheduling();
 	}
 
 	private void saveAndValidadeScheduling() {
-		newSchedulingPage.clickSave();
+		newSchedulegPage.clickSave();
 		Assert.assertEquals(schedulePage.toasterSuccessIsVisible(), SUCCESS_TEXT_SAVE);
 	}
 
 	private void setAndValidadeCostumer() {
-		newSchedulingPage.setCostumer(COSTUMER_NAME);
-		Assert.assertEquals(newSchedulingPage.costumerSelectedIsVisible(), true);
+		newSchedulegPage.setCostumer(COSTUMER_NAME);
+		Assert.assertEquals(newSchedulegPage.costumerSelectedIsVisible(), true);
 	}
 
 	private void openAndValidateScheduling() {
-		schedulePage.newSchedulingButtonClick();
-		Assert.assertEquals(newSchedulingPage.newSchedulingIsVisible(), true);
+		schedulePage.newScheduleButtonClick();
+		Assert.assertEquals(newSchedulegPage.newScheduleIsVisible(), true);
 	}
 
 	private void openAndValidateSchedule() {
@@ -73,7 +75,7 @@ public class NewSchedulingTest extends DefaultClassTest {
 
 	private void setupPages() {
 		schedulePage = new SchedulePage(driver);
-		newSchedulingPage = new NewSchedulingPage(driver);
+		newSchedulegPage = new NewSchedulePage(driver);
 	}
 
 }
