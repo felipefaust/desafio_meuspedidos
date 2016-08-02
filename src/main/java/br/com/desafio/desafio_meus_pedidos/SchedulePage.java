@@ -1,13 +1,7 @@
 package br.com.desafio.desafio_meus_pedidos;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriver.Window;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SchedulePage {
 	private static final String CLASSNAME_ALTER_SCHEDULE = "icon-pencil";
@@ -28,7 +22,6 @@ public class SchedulePage {
 	private static final String XPATH_EMPTY_LIST = "//*[@id='atividades']/li/div";
 	private static final String XPATH_NOTE_INPUT = "//*[@id='atividades']/li/div[2]/div/div[4]/textarea";
 	private static final String XPATH_NOTE_ITEM_LIST = "//*[@id='atividades']/li/div[2]/div/div[3]/blockquote/div";
-
 	private WebDriver driver;
 
 	public SchedulePage(WebDriver driver) {
@@ -96,12 +89,12 @@ public class SchedulePage {
 		driver.findElement(By.id(ID_SELECT_FILTER)).click();
 		driver.findElement(By.id(ID_OPTION_2)).click();
 	}
-	
+
 	public boolean buttonActivityIsVisibe() {
 		return driver.findElement(By.id(ID_ACTIVITY_BUTTON)).isDisplayed();
 	}
 
-	public void sleep(){
+	public void sleep() {
 		try {
 			Thread.sleep(999);
 		} catch (InterruptedException e) {

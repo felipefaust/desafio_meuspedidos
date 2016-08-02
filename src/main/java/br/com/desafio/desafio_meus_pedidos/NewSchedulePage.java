@@ -24,7 +24,7 @@ public class NewSchedulePage {
 		this.driver = driver;
 	}
 
-	public boolean newScheduleIsVisible() {	
+	public boolean newScheduleIsVisible() {
 		return driver.findElement(By.id(ID_CALL_OPTION_TYPE)).isDisplayed();
 	}
 
